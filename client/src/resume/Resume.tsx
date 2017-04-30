@@ -13,16 +13,11 @@ import {
 import * as ResumeData from "../../../data/resume.json";
 
 export interface IResumeState {
-    data: IResumeData
 }
 
 export class Resume extends React.Component<undefined, IResumeState> {
-    state: IResumeState = {
-        data: ResumeData
-    }
-
     render() {
-        var data = this.state.data;
+        var data: IResumeData = ResumeData;
 
         return (
             <div>

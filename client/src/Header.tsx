@@ -19,11 +19,11 @@ export const Header = () => {
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <NavLink className="pull-left greymind-logo" to="/"></NavLink>
+                        <NavLink className="pull-left greymind-logo" to="/home"></NavLink>
                     </div>
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav">
-                            <li className="active"><NavLink to="/">Home <span className="sr-only">(current)</span></NavLink></li>
+                            <li className="active"><NavLink to="/home">Home <span className="sr-only">(current)</span></NavLink></li>
                             <li className="dropdown">
                                 <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span className="caret"></span></a>
                                 <ul className="dropdown-menu">

@@ -7,6 +7,7 @@ import "../styles/main.less";
 
 import { Header } from "./Header";
 import { Routes, RouteWithSubRoutes } from "./Routes";
+import { Redirect } from "react-router";
 
 interface IAppState {
 }
@@ -21,6 +22,7 @@ export class App extends React.Component<undefined, IAppState> {
                         {Routes.map((route, i) => (
                             <RouteWithSubRoutes key={i} {...route} />
                         ))}
+                        <Redirect to="/home" />
                     </div>
                 </div>
             </Router>
