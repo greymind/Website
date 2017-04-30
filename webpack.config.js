@@ -65,6 +65,10 @@ module.exports = {
                     }],
                     fallback: "style-loader"
                 })
+            },
+            {
+                test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
+                loader: "file-loader"
             }
         ]
     },
@@ -79,6 +83,8 @@ module.exports = {
     ],
 
     externals: {
+        "jQuery": "JQuery",
+        "lodash": "Lodash",
         "react": "React",
         "react-dom": "ReactDOM"
     },

@@ -1,19 +1,28 @@
+import * as $ from "jquery";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import "../styles/main.less";
 
 import { Home } from "./Home";
-import { Resume } from "./Resume";
+import { Resume, IResumeProps } from "./Resume";
 
-export interface IAppState { }
+import * as ResumeData from "./resume.json";
+
+export interface IAppState {
+    resumeData: IResumeProps;
+}
 
 export class App extends React.Component<undefined, IAppState> {
+    state: IAppState = {
+        resumeData: ResumeData
+    }
+
     render() {
         return (
-            <div>
+            <div className="nav">
                 <Home />
-                <Resume />
+                <Resume {...this.state.resumeData} />
             </div>
         )
     }
