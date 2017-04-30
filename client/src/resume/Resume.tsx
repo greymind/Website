@@ -1,71 +1,35 @@
 import * as React from "react";
 
-export interface Basic {
-    name: string;
-    title: string;
-    passion: string;
-    address: string;
-    city: string;
-    state: string;
-    country: string;
-    zip: string;
-    email: string;
-    phone: string;
+import {
+    Basic,
+    Education,
+    Experience,
+    IResumeData,
+    Organization,
+    Skill,
+    TimePeriod
+} from "./interfaces";
+
+import * as ResumeData from "../../../data/resume.json";
+
+export interface IResumeState {
+    data: IResumeData
 }
 
-export interface Education {
-    degree: string;
-    school: string;
-    focus: string;
-}
+export class Resume extends React.Component<undefined, IResumeState> {
+    state: IResumeState = {
+        data: ResumeData
+    }
 
-export interface Skill {
-    category: string;
-    items: string[];
-}
-
-export interface Organization {
-    name: string;
-    division: string;
-}
-
-export interface TimePeriod {
-    month: string;
-    year: number;
-}
-
-export interface Experience {
-    title: string;
-    organization: Organization;
-    location: string;
-    from: TimePeriod;
-    to: TimePeriod;
-    description: string;
-}
-
-export interface IResumeProps {
-    basics: Basic;
-    education: Education[];
-    skills: Skill[];
-    experience: Experience[];
-}
-
-export interface IResumeState { }
-
-export class Resume extends React.Component<IResumeProps, IResumeState> {
     render() {
+        var data = this.state.data;
+
         return (
             <div>
                 <div className="jumbotron">
-                    <div><strong>{this.props.basics.name}</strong></div>
-                    <div>{this.props.basics.title}</div>
-                    <div><em>{this.props.basics.passion}</em></div>
-                    {/*<div>
-                        <div>{this.props.basics.address}</div>
-                        <div>{this.props.basics.city}, {this.props.basics.state}, {this.props.basics.zip}</div>
-                        <div>{this.props.basics.email}</div>
-                        <div>{this.props.basics.phone}</div>
-                    </div>*/}
+                    <div><strong>{data.basics.name}</strong></div>
+                    <div>{data.basics.title}</div>
+                    <div><em>{data.basics.passion}</em></div>
                 </div>
 
                 <div>
@@ -78,7 +42,7 @@ export class Resume extends React.Component<IResumeProps, IResumeState> {
                             </a>
                         </div>
                         <ul className="list-group panel-collapse collapse in">
-                            {this.props.skills.map((skill, skillIndex) =>
+                            {data.skills.map((skill, skillIndex) =>
                                 <li key={skillIndex} className="list-group-item">
                                     <strong>{skill.category} | </strong>
                                     <em>
@@ -103,7 +67,7 @@ export class Resume extends React.Component<IResumeProps, IResumeState> {
                             </a>
                         </div>
                         <ul className="list-group panel-collapse collapse in">
-                            {this.props.experience.map((experience, experienceIndex) =>
+                            {data.experience.map((experience, experienceIndex) =>
                                 <li key={experienceIndex} className="list-group-item">
                                     <div><strong>{experience.title}</strong>
                                         <br />{experience.organization.division} @ <em>{experience.organization.name}</em>
@@ -125,8 +89,8 @@ export class Resume extends React.Component<IResumeProps, IResumeState> {
                             </a>
                         </div>
                         <ul className="list-group panel-collapse collapse in">
-                            {this.props.education.map(education =>
-                                <li className="list-group-item">
+                            {data.education.map((education, educationIndex) =>
+                                <li key={educationIndex} className="list-group-item">
                                     <div><strong>{education.degree}</strong>
                                         <br />{education.school}
                                         <br /><em>{education.focus}</em>
