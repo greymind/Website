@@ -22,6 +22,11 @@ export const RouteWithSubRoutes = (route: IRouteProps) => {
 
 export const Routes: IRouteProps[] = [
     {
+        path: "/",
+        component: Home as any,
+        exact: true,
+    },
+    {
         path: "/home",
         component: Home as any,
     },
