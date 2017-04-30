@@ -3,19 +3,33 @@ const path = require('path')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const env = process.env.NODE_ENV || "development"
+const Environment = {
+    dev: "development",
+    prod: "production"
+}
+
+const env = process.env.NODE_ENV || Environment.dev;
+
+const distPath = "client/dist";
+
+const cleanPaths = [distPath];
+const cleanOptions = {
+    watch: true,
+    //dry: env === Environment.prod
+}
 
 const extractLess = new ExtractTextPlugin({
     filename: "[name].[contenthash].css",
-    disable: env === "development"
+    disable: env === Environment.dev
 });
 
 module.exports = {
     entry: "./client/src/App.tsx",
     output: {
         filename: "bundle.[hash].js",
-        path: path.join(__dirname, "client/dist")
+        path: path.join(__dirname, distPath)
     },
 
     devtool: "source-map",
@@ -56,6 +70,7 @@ module.exports = {
     },
 
     plugins: [
+        new CleanWebpackPlugin(cleanPaths, cleanOptions),
         extractLess,
         new HtmlWebpackPlugin({
             template: "./client/Index.ejs",

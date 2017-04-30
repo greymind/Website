@@ -6,7 +6,9 @@ export interface IResumeState { }
 export class Resume extends React.Component<IResumeProps, IResumeState> {
     render() {
         return (
-            <div></div>
+            <div>
+
+            </div>
         );
     }
 }
