@@ -24,8 +24,8 @@
     ],
     "skills": [
         {
-            "Category": "Programming Languages",
-            "Items": [
+            "category": "Programming Languages",
+            "items": [
                 "C#",
                 ".NET",
                 "C++",
@@ -36,8 +36,8 @@
             ]
         },
         {
-            "Category": "User Interface Development",
-            "Items": [
+            "category": "User Interface Development",
+            "items": [
                 "WPF",
                 "XAML",
                 "Silverlight",
@@ -45,8 +45,8 @@
             ]
         },
         {
-            "Category": "Web Front-end and Languages",
-            "Items": [
+            "category": "Web Front-end and Languages",
+            "items": [
                 "HTML",
                 "JavaScript",
                 "TypeScript",
@@ -59,8 +59,8 @@
             ]
         },
         {
-            "Category": "Web Back-end and Platforms",
-            "Items": [
+            "category": "Web Back-end and Platforms",
+            "items": [
                 "ASP.NET/MVC",
                 "WebAPI",
                 "Node.js",
@@ -74,8 +74,8 @@
             ]
         },
         {
-            "Category": "Programming Paradigms",
-            "Items": [
+            "category": "Programming Paradigms",
+            "items": [
                 "Event-driven",
                 "Data-driven",
                 "Object-oriented",
@@ -86,21 +86,21 @@
             ]
         },
         {
-            "Category": "Mobile Development",
-            "Items": [
+            "category": "Mobile Development",
+            "items": [
                 "Cordova"
             ]
         },
         {
-            "Category": "DevOps",
-            "Items": [
+            "category": "DevOps",
+            "items": [
                 "Vagrant",
                 "Docker"
             ]
         },
         {
-            "Category": "Pipeline and Tools",
-            "Items": [
+            "category": "Pipeline and Tools",
+            "items": [
                 "Node.js",
                 "NPM",
                 "Bower",
@@ -112,8 +112,8 @@
             ]
         },
         {
-            "Category": "Database Technologies",
-            "Items": [
+            "category": "Database Technologies",
+            "items": [
                 "SQL Server",
                 "Entity Framework",
                 "MySQL",
@@ -122,8 +122,8 @@
             ]
         },
         {
-            "Category": "Testing and Analysis",
-            "Items": [
+            "category": "Testing and Analysis",
+            "items": [
                 "Karma",
                 "Jasmine",
                 "Mocha",
@@ -131,8 +131,8 @@
             ]
         },
         {
-            "Category": "Graphic Design and Multimedia",
-            "Items": [
+            "category": "Graphic Design and Multimedia",
+            "items": [
                 "Photoshop",
                 "Premiere",
                 "Audacity",
@@ -141,15 +141,15 @@
             ]
         },
         {
-            "Category": "3D Graphics and Animation",
-            "Items": [
+            "category": "3D Graphics and Animation",
+            "items": [
                 "Maya",
                 "Maya API"
             ]
         },
         {
-            "Category": "Game Development",
-            "Items": [
+            "category": "Game Development",
+            "items": [
                 "Unity3D",
                 "XNA",
                 "DirectX",
@@ -158,8 +158,8 @@
             ]
         },
         {
-            "Category": "Source Control",
-            "Items": [
+            "category": "Source Control",
+            "items": [
                 "Git",
                 "TFS",
                 "Mercurial",
@@ -168,8 +168,8 @@
             ]
         },
         {
-            "Category": "Scripting Languages",
-            "Items": [
+            "category": "Scripting Languages",
+            "items": [
                 "Python",
                 "Lua",
                 "VBScript",
@@ -177,8 +177,8 @@
             ]
         },
         {
-            "Category": "Operating Systems",
-            "Items": [
+            "category": "Operating Systems",
+            "items": [
                 "Windows Batch",
                 "PowerShell",
                 "GNU/Linux Bash",
