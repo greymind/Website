@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "./client//dist/",
+        "outDir": "./client/dist/",
         "sourceMap": true,
         "noImplicitAny": true,
         "module": "commonjs",
@@ -8,7 +8,7 @@
         "jsx": "react"
     },
     "include": [
-        "./client/src/**/*"
+        "./client/app/**/*"
     ],
     "awesomeTypescriptLoaderOptions": {
         "useWebpackText": true,
