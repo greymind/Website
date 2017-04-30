@@ -14,7 +14,7 @@ const extractLess = new ExtractTextPlugin({
 module.exports = {
     entry: "./client/src/App.tsx",
     output: {
-        filename: "bundle.js",
+        filename: "bundle.[hash].js",
         path: path.join(__dirname, "client/dist")
     },
 
