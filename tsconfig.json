@@ -8,7 +8,7 @@
         "jsx": "react"
     },
     "include": [
-        "./client/app/**/*"
+        "./client/src/**/*"
     ],
     "awesomeTypescriptLoaderOptions": {
         "useWebpackText": true,
