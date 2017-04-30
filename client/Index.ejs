@@ -26,12 +26,14 @@
         <% JSON.stringify(webpackConfig, null, 2) %>
     </pre>-->
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.min.js"></script>
+
     <% if (htmlWebpackPlugin.options.env === "production") { %>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.min.js"></script>
         <% } else { %>
-            <script src="../../node_modules/react/dist/react.js"></script>
-            <script src="../../node_modules/react-dom/dist/react-dom.js"></script>
+            <!--<script src="../../node_modules/react/dist/react.js"></script>
+            <script src="../../node_modules/react-dom/dist/react-dom.js"></script>-->
             <% } %>
 
 </body>

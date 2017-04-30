@@ -69,7 +69,14 @@ module.exports = {
             {
                 test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
                 loader: "file-loader"
-            }
+            },
+            {
+                test: /\.(jpg|png|svg)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 25000,
+                },
+            },
         ]
     },
 
@@ -88,4 +95,14 @@ module.exports = {
         "react": "React",
         "react-dom": "ReactDOM"
     },
+
+    devServer: {
+        contentBase: path.join(__dirname, distPath),
+        compress: true,
+        port: 8081,
+        overlay: {
+            warnings: true,
+            errors: true
+        }
+    }
 };

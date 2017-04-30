@@ -58,12 +58,12 @@ export class Resume extends React.Component<IResumeProps, IResumeState> {
                 <div className="jumbotron">
                     <div><strong>{this.props.basics.name}</strong></div>
                     <div><em>{this.props.basics.title}</em></div>
-                    <div>
+                    {/*<div>
                         <div>{this.props.basics.address}</div>
                         <div>{this.props.basics.city}, {this.props.basics.state}, {this.props.basics.zip}</div>
                         <div>{this.props.basics.email}</div>
                         <div>{this.props.basics.phone}</div>
-                    </div>
+                    </div>*/}
                 </div>
 
                 <div>
