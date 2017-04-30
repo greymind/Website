@@ -3,9 +3,9 @@ import * as ReactDOM from "react-dom";
 
 import { Home } from "./Home";
 
-export interface IIndexState { }
+export interface IAppState { }
 
-export class Index extends React.Component<undefined, IIndexState> {
+export class App extends React.Component<undefined, IAppState> {
     render() {
         return (
             <Home />
@@ -14,6 +14,6 @@ export class Index extends React.Component<undefined, IIndexState> {
 }
 
 ReactDOM.render(
-    <Index />,
+    <App />,
     document.getElementById("app")
 );
