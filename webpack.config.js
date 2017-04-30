@@ -25,7 +25,8 @@ module.exports = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./client/Index.ejs"
+            template: "./client/Index.ejs",
+            env: process.env.NODE_ENV || "development"
         })
     ],
 
