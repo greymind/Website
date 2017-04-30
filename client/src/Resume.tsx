@@ -3,6 +3,7 @@ import * as React from "react";
 export interface Basic {
     name: string;
     title: string;
+    passion: string;
     address: string;
     city: string;
     state: string;
@@ -57,7 +58,8 @@ export class Resume extends React.Component<IResumeProps, IResumeState> {
             <div>
                 <div className="jumbotron">
                     <div><strong>{this.props.basics.name}</strong></div>
-                    <div><em>{this.props.basics.title}</em></div>
+                    <div>{this.props.basics.title}</div>
+                    <div><em>{this.props.basics.passion}</em></div>
                     {/*<div>
                         <div>{this.props.basics.address}</div>
                         <div>{this.props.basics.city}, {this.props.basics.state}, {this.props.basics.zip}</div>

@@ -1,7 +1,8 @@
 {
     "basics": {
         "name": "Balakrishnan (Balki) Ranganathan",
-        "title": "Software Engineer",
+        "title": "Leader, Software Engineer, Architect",
+        "passion": "Passionate about metaprogramming, automation and tools; mindful about learning, teamwork and equality; love to teach, play basketball and strategy games",
         "address": "3745 Glendon Ave, Apt 207",
         "city": "Los Angeles",
         "state": "CA",
@@ -26,8 +27,7 @@
         {
             "category": "Programming Languages",
             "items": [
-                "C#",
-                ".NET",
+                "C#/.NET",
                 "C++",
                 "C++/CLI",
                 "Visual C++/Win32",
@@ -36,20 +36,12 @@
             ]
         },
         {
-            "category": "User Interface Development",
-            "items": [
-                "WPF",
-                "XAML",
-                "Silverlight",
-                "Expression Blend"
-            ]
-        },
-        {
             "category": "Web Front-end and Languages",
             "items": [
                 "HTML",
                 "JavaScript",
                 "TypeScript",
+                "React",
                 "AngularJS",
                 "Bootstrap",
                 "CSS",
@@ -61,14 +53,16 @@
         {
             "category": "Web Back-end and Platforms",
             "items": [
-                "ASP.NET/MVC",
                 "WebAPI",
+                "ASP.NET MVC",
+                "IIS",
+                "Nginx",
                 "Node.js",
                 "ExpressJS",
                 "WCF",
+                "PubNub",
                 "SignalR",
                 "PHP",
-                "IIS",
                 "LAMP",
                 "Azure"
             ]
@@ -86,16 +80,15 @@
             ]
         },
         {
-            "category": "Mobile Development",
-            "items": [
-                "Cordova"
-            ]
-        },
-        {
             "category": "DevOps",
             "items": [
+                "PowerShell",
+                "Docker",
                 "Vagrant",
-                "Docker"
+                "Continuous Deployment",
+                "Windows and Linux Administration",
+                "Linux Bash",
+                "Windows Batch"
             ]
         },
         {
@@ -103,16 +96,18 @@
             "items": [
                 "Node.js",
                 "NPM",
-                "Bower",
+                "Webpack",
+                "Yarn",
                 "Gulp",
                 "NuGet",
+                "Bower",
                 "T4",
                 "MSBuild",
                 "Yeoman"
             ]
         },
         {
-            "category": "Database Technologies",
+            "category": "Database and Storage",
             "items": [
                 "SQL Server",
                 "Entity Framework",
@@ -122,22 +117,21 @@
             ]
         },
         {
+            "category": "User Interface Development",
+            "items": [
+                "WPF",
+                "XAML",
+                "Silverlight",
+                "Expression Blend"
+            ]
+        },
+        {
             "category": "Testing and Analysis",
             "items": [
                 "Karma",
                 "Jasmine",
                 "Mocha",
                 "Protractor"
-            ]
-        },
-        {
-            "category": "Graphic Design and Multimedia",
-            "items": [
-                "Photoshop",
-                "Premiere",
-                "Audacity",
-                "VirtualDub",
-                "AVISynth"
             ]
         },
         {
@@ -177,12 +171,20 @@
             ]
         },
         {
-            "category": "Operating Systems",
+            "category": "Graphic Design and Multimedia",
             "items": [
-                "Windows Batch",
-                "PowerShell",
-                "GNU/Linux Bash",
-                "Windows and GNU/Linux Administration"
+                "Photoshop",
+                "Premiere",
+                "Audacity",
+                "VirtualDub",
+                "AVISynth"
+            ]
+        },
+        {
+            "category": "Mobile Development",
+            "items": [
+                "Xamarin",
+                "Cordova"
             ]
         }
     ],
