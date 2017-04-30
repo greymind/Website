@@ -8,7 +8,9 @@ export interface IAppState { }
 export class App extends React.Component<undefined, IAppState> {
     render() {
         return (
-            <Home />
+            <div>
+                <Home />
+            </div>
         )
     }
 }
