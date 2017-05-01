@@ -16,7 +16,7 @@ doesSignatureMatch = (req) => {
     const hmac = crypto.createHmac(algorithm, secret);
 
     hmac.update(body);
-    const digest = `${algorithm}-${hmac.digest("hex")}`;
+    const digest = `${algorithm}=${hmac.digest("hex")}`;
 
     console.log(`[${headerSignatureKey}] ${headerSignature}`);
     console.log(`[Digest] ${digest}`);
