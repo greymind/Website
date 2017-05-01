@@ -1,6 +1,7 @@
 var http = require('http');
 var path = require("path");
 var exec = require('child_process').exec;
+var spawn = require('child_process').spawn;
 
 var host = "127.0.0.1";
 var port = 3789;
@@ -17,4 +18,18 @@ console.log(__dirname);
 
 exec(syncCommand, function (error, stdout, stderr) {
     console.log(stdout);
+});
+
+var syncProcess = spawn(syncCommand);
+
+syncProcess.stdout.on('data', (data) => { console.log(data); });
+
+syncProcess.stdout.on('end', (data) => {
+    console.log("Sync complete!");
+});
+
+syncProcess.on('exit', (code) => {
+    if (code != 0) {
+        console.error(`Failed: ${code}`);
+    }
 });
