@@ -35,7 +35,7 @@ router.use(function (req, res, next) {
 });
 
 router.get("/", (req, res) => {
-    res.json({ message: "What're you doing here?" });
+    res.json({ message: "What're you doing here. dude?" });
 });
 
 router.post("/deploy", (req, res) => {
