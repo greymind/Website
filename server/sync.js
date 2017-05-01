@@ -42,7 +42,7 @@ sync = (req) => {
 
     LOCK = true;
 
-    var syncProcess = spawn(syncCommand);
+    const syncProcess = spawn(syncCommand);
 
     syncProcess.stdout.on("data", (data) => { console.log(data.toString()); });
 
