@@ -8,7 +8,7 @@ const secret = process.env.G_GREYMIND_SECRET || "";
 var LOCK = false;
 
 doesSignatureMatch = (req) => {
-    const headerSignature = req.headers();
+    const headerSignature = req.header("X-Hub-Signature");
     const body = JSON.stringify(req.body);
 
     const hmac = crypto.createHmac("sha1", secret);
