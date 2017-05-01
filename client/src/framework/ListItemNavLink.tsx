@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as PropTypes from "prop-types";
 import { NavLinkProps, NavLink } from "react-router-dom";
 import { RouterChildContext } from "react-router";
 
@@ -18,7 +19,7 @@ export class ListItemNavLink extends React.Component<NavLinkProps, IListItemNavL
     context: IListItemNavLinkContext
 
     static contextTypes = {
-        router: React.PropTypes.object.isRequired
+        router: PropTypes.object.isRequired
     }
 
     isActive = () => {
