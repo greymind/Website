@@ -22,7 +22,7 @@ getHmacDigest = (body) => {
 doesSignatureMatch = (req) => {
     const headerSignatureKey = "X-Hub-Signature";
     const headerSignature = req.header(headerSignatureKey);
-    
+
     const body = JSON.stringify(req.body);
     const digest = getHmacDigest(body);
 
@@ -57,7 +57,8 @@ sync = (req) => {
 
         LOCK = false;
 
-        exec(supervisorCommand);
+        console.log("Restarting server...");
+        exec(supervisorCommand, (err, stdout, stderr) => console.log(stdout));
     });
 }
 
