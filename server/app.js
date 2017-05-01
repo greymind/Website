@@ -35,15 +35,15 @@ router.use(function (req, res, next) {
 });
 
 router.get("/", (req, res) => {
-    res.json({ message: 'hooray! welcome to our api!' });
+    res.json({ message: "What're you doing here?" });
 });
 
 router.post("/deploy", (req, res) => {
-    res.json({ message: 'posting!' });
+    res.json({ message: "posting!" });
     //sync();
 });
 
-app.use("/", router);
+app.use("/api", router);
 
 app.listen(port, host);
 
