@@ -41,6 +41,7 @@ router.get("/", (req, res) => {
 router.post("/deploy", (req, res) => {
     sync(req);
     res.status(200);
+    res.end();
 });
 
 app.use("/api", router);
