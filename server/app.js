@@ -17,7 +17,7 @@ console.log(__dirname);
 
 var syncProcess = spawn(syncCommand);
 
-syncProcess.stdout.on('data', (data) => { console.log(data); });
+syncProcess.stdout.on('data', (data) => { console.log(data.toString()); });
 
 syncProcess.stdout.on('end', (data) => {
     console.log("Sync complete!");
