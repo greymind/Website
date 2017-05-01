@@ -1,0 +1,50 @@
+[
+    {
+        "category": "Metaprogramming",
+        "projects": [
+            {
+                "name": "WebApiToTypeScript",
+                "url": "https://github.com/greymind/WebApiToTypeScript"
+            }
+        ]
+    },
+    {
+        "category": "Maya Tools",
+        "projects": [
+            {
+                "name": "Sequencer",
+                "url": "https://github.com/greymind/Sequencer"
+            },
+            {
+                "name": "ModelDef",
+                "url": "https://github.com/greymind/ModelDef"
+            },
+            {
+                "name": "SceneDef",
+                "url": "https://github.com/greymind/SceneDef"
+            },
+            {
+                "name": "Animation Custom Data",
+                "url": "https://github.com/greymind/AnimationCustomData"
+            }
+        ]
+    },
+    {
+        "category": "Multimedia Editing",
+        "projects": [
+            {
+                "name": "ClipSynth",
+                "url": "https://github.com/greymind/ClipSynth"
+            }
+        ]
+    },
+    {
+        "category": "Data",
+        "projects": [
+            {
+                "name": "Database Converters",
+                "url": "https://github.com/greymind/DatabaseConverters"
+            }
+        ]
+    }
+]

@@ -1,3 +1,4 @@
+import * as _ from "lodash";
 import * as React from "react";
 
 import {
@@ -5,6 +6,25 @@ import {
     Route,
     NavLink
 } from 'react-router-dom';
+
+import * as Projects from "../../data/projects.json"
+import { ICategory, IProject, IProjectMenuItem } from "./projects/interfaces";
+
+const categories: ICategory[] = Projects;
+const menuItems = _.flatMap(categories, (category) => {
+    var categoryItem: IProjectMenuItem =
+        {
+            isCategory: true,
+            name: category.category
+        };
+
+    return [categoryItem].concat(category.projects.map((project) => {
+        return {
+            name: project.name,
+            url: project.url
+        }
+    }));
+});
 
 export const Header = () => {
     return (
@@ -27,15 +47,11 @@ export const Header = () => {
                             <li className="dropdown">
                                 <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span className="caret"></span></a>
                                 <ul className="dropdown-menu">
-                                    <li className="dropdown-header">Maya Tools</li>
-                                    <li><a target="_blank" href="https://github.com/greymind/Sequencer">Sequencer</a></li>
-                                    <li><a target="_blank" href="https://github.com/greymind/Sequencer">ModelDef Exporter</a></li>
-                                    <li><a target="_blank" href="https://github.com/greymind/Sequencer">Scene Exporter</a></li>
-                                    <li><a target="_blank" href="https://github.com/greymind/Sequencer">Custom Data Exporter</a></li>
-                                    <li className="dropdown-header">Audio/Video Editing</li>
-                                    <li><a target="_blank" href="https://github.com/greymind/ClipSynth">ClipSynth</a></li>
-                                    <li className="dropdown-header">Pipeline Tools</li>
-                                    <li><a target="_blank" href="https://github.com/greymind/DatabaseConverters">Database Converters</a></li>
+                                    {menuItems.map((menuItem, menuItemIndex) =>
+                                        menuItem.isCategory
+                                            ? <li key={menuItemIndex} className="dropdown-header">{menuItem.name}</li>
+                                            : <li key={menuItemIndex}><a target="_blank" href={menuItem.url}>{menuItem.name}</a></li>
+                                    )}
                                 </ul>
                             </li>
                         </ul>

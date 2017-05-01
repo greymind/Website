@@ -91,7 +91,6 @@ module.exports = {
 
     externals: {
         "jQuery": "JQuery",
-        "lodash": "Lodash",
         "react": "React",
         "react-dom": "ReactDOM"
     },
