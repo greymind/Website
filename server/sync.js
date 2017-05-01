@@ -1,8 +1,10 @@
 const path = require("path");
 const spawn = require("child_process").spawn;
+const exec = require("child_process").exec;
 const crypto = require('crypto');
 
 const syncCommand = path.join(__dirname, "..", "sync.sh");
+const supervisorCommand = "sudo supervisorctl restart greymind.com.api";
 const secret = process.env.G_GREYMIND_SECRET || "";
 
 var LOCK = false;
@@ -32,8 +34,6 @@ sync = (req) => {
 
     console.log("Deploying...");
 
-    return;
-
     LOCK = true;
 
     var syncProcess = spawn(syncCommand);
@@ -50,6 +50,8 @@ sync = (req) => {
         }
 
         LOCK = false;
+
+        exec(supervisorCommand);
     });
 }
 
