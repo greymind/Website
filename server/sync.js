@@ -15,7 +15,7 @@ doesSignatureMatch = (req) => {
     const algorithm = "sha1";
     const hmac = crypto.createHmac(algorithm, secret);
 
-    hmac.update(JSON.stringify(body));
+    hmac.update(body);
     const digest = `${algorithm}-${hmac.digest("hex")}`;
 
     console.log(`[${headerSignatureKey}] ${headerSignature}`);
