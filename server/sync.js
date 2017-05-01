@@ -1,14 +1,36 @@
-var path = require("path");
-var spawn = require("child_process").spawn;
+const path = require("path");
+const spawn = require("child_process").spawn;
+const crypto = require('crypto');
 
-var syncCommand = path.join(__dirname, "..", "sync.sh");
+const syncCommand = path.join(__dirname, "..", "sync.sh");
+const secret = process.env.G_GREYMIND_SECRET || "";
 
 var LOCK = false;
 
-sync = () => {
-    if (LOCK)
+doesSignatureMatch = (req) => {
+    const headerSignature = req.headers();
+    const body = JSON.stringify(req.body);
+
+    const hmac = crypto.createHmac("sha1", secret);
+
+    hmac.update(JSON.stringify(body));
+    const digest = hmac.digest("hex");
+
+    console.log(`[Digest] ${digest}`);
+
+    return headerSignature === digest;
+}
+
+sync = (req) => {
+    if (LOCK || !doesSignatureMatch(req)) {
+        console.warn("Deploy in progress or security error!");
         return;
-    
+    }
+
+    console.log("Deploying...");
+
+    return;
+
     LOCK = true;
 
     var syncProcess = spawn(syncCommand);

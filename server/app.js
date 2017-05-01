@@ -1,17 +1,17 @@
-var express = require("express");
-var bodyParser = require("body-parser");
+const express = require("express");
+const bodyParser = require("body-parser");
 
-var sync = require("./sync.js").sync;
+const sync = require("./sync.js").sync;
 
-var host = "127.0.0.1";
-var port = process.env.PORT || 3789;
+const host = "127.0.0.1";
+const port = process.env.PORT || 3789;
 
-var app = express();
+const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var router = express.Router();
+const router = express.Router();
 
 router.use(function (req, res, next) {
     log(req.originalUrl, "Original URL");
@@ -39,8 +39,8 @@ router.get("/", (req, res) => {
 });
 
 router.post("/deploy", (req, res) => {
-    res.json({ message: "posting!" });
-    //sync();
+    sync(req);
+    res.status(200);
 });
 
 app.use("/api", router);
@@ -48,4 +48,3 @@ app.use("/api", router);
 app.listen(port, host);
 
 console.log(`Server running at ${host}:${port}`);
-
