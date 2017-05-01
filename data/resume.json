@@ -1,15 +1,8 @@
 {
     "basics": {
         "name": "Balakrishnan (Balki) Ranganathan",
-        "title": "Leader, Software Engineer, Architect",
-        "passion": "Passionate about metaprogramming, automation and tools; mindful about learning, teamwork and equality; love teaching, basketball, American football and strategy games",
-        "address": "3745 Glendon Ave, Apt 207",
-        "city": "Los Angeles",
-        "state": "CA",
-        "country": "USA",
-        "zip": "90034",
-        "email": "balki@live.com",
-        "phone": "310-926-5720"
+        "title": "Software Engineer, Architect",
+        "passion": "Passionate about metaprogramming, automation and tools; mindful about learning, teamwork and equality; love reading, teaching, basketball, American football and strategy games"
     },
     "education": [
         {
