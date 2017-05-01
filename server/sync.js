@@ -9,16 +9,22 @@ const secret = process.env.G_GREYMIND_SECRET || "";
 
 var LOCK = false;
 
-doesSignatureMatch = (req) => {
-    const headerSignatureKey = "X-Hub-Signature";
-    const headerSignature = req.header(headerSignatureKey);
-    const body = JSON.stringify(req.body);
-
+getHmacDigest = (body) => {
     const algorithm = "sha1";
     const hmac = crypto.createHmac(algorithm, secret);
 
     hmac.update(body);
     const digest = `${algorithm}=${hmac.digest("hex")}`;
+
+    return digest;
+}
+
+doesSignatureMatch = (req) => {
+    const headerSignatureKey = "X-Hub-Signature";
+    const headerSignature = req.header(headerSignatureKey);
+    
+    const body = JSON.stringify(req.body);
+    const digest = getHmacDigest(body);
 
     console.log(`[${headerSignatureKey}] ${headerSignature}`);
     console.log(`[Digest] ${digest}`);
