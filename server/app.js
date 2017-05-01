@@ -1,6 +1,5 @@
 var http = require('http');
 var path = require("path");
-var exec = require('child_process').exec;
 var spawn = require('child_process').spawn;
 
 var host = "127.0.0.1";
@@ -15,10 +14,6 @@ http.createServer(function (req, res) {
 
 console.log(`Server running at ${host}:${port}`);
 console.log(__dirname);
-
-exec(syncCommand, function (error, stdout, stderr) {
-    console.log(stdout);
-});
 
 var syncProcess = spawn(syncCommand);
 
