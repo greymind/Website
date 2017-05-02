@@ -3,7 +3,7 @@
         "category": "Metaprogramming",
         "projects": [
             {
-                "name": "WebApiToTypeScript",
+                "name": "WebApi To TypeScript",
                 "url": "https://github.com/greymind/WebApiToTypeScript"
             }
         ]
@@ -16,15 +16,15 @@
                 "url": "https://github.com/greymind/Sequencer"
             },
             {
-                "name": "ModelDef",
+                "name": "3D Model Format",
                 "url": "https://github.com/greymind/ModelDef"
             },
             {
-                "name": "SceneDef",
+                "name": "3D Scene Format",
                 "url": "https://github.com/greymind/SceneDef"
             },
             {
-                "name": "Animation Custom Data",
+                "name": "Skeletal Animation Custom Data",
                 "url": "https://github.com/greymind/AnimationCustomData"
             }
         ]
