@@ -4,21 +4,11 @@ import { NavLinkProps, NavLink } from "react-router-dom";
 import { RouterChildContext } from "react-router-dom";
 import { matchPath } from "react-router-dom";
 
-interface IListItemNavLinkState {
-    isActive: boolean;
-}
+interface IListItemNavLinkContext extends RouterChildContext<any> { }
 
-interface IListItemNavLinkContext extends RouterChildContext<any> {
-
-}
-
-export class ListItemNavLink extends React.Component<NavLinkProps, IListItemNavLinkState> {
+export class ListItemNavLink extends React.Component<NavLinkProps, undefined> {
     static defaultProps: Partial<NavLinkProps> = {
         activeClassName: "active"
-    };
-
-    state: IListItemNavLinkState = {
-        isActive: false
     };
 
     context: IListItemNavLinkContext;
