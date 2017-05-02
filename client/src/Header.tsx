@@ -59,7 +59,7 @@ export class Header extends React.Component<undefined, undefined> {
                                 </li>
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
-                                <ListItemNavLink to="/resume">Resume</ListItemNavLink>
+                                <ListItemNavLink to="/resume">About Balki</ListItemNavLink>
                             </ul>
                         </div>
                     </div>
