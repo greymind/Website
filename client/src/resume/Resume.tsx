@@ -66,8 +66,9 @@ export class Resume extends React.Component<undefined, IResumeState> {
                                 <li key={experienceIndex} className="list-group-item">
                                     <div><strong>{experience.title}</strong>
                                         <br />{experience.organization.division} @ <em>{experience.organization.name}</em>
-                                        <br />{experience.from.month} {experience.from.year} - {experience.to.month} {experience.to.year},
-                        {experience.location}
+                                        <br />{experience.from.month} {experience.from.year}
+                                        &nbsp;- {experience.to.month} {experience.to.year ? experience.to.year : new Date().getFullYear()},
+                                        &nbsp;{experience.location}
                                     </div>
                                     <div><em>{experience.description}</em></div>
                                 </li>
