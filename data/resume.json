@@ -194,7 +194,7 @@
                 "year": 2015
             },
             "to": {
-                "month": "Now",
+                "month": null,
                 "year": null
             },
             "description": "Full-stack developer on a large, multi-tenant project."

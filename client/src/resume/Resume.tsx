@@ -67,7 +67,8 @@ export class Resume extends React.Component<undefined, IResumeState> {
                                     <div><strong>{experience.title}</strong>
                                         <br />{experience.organization.division} @ <em>{experience.organization.name}</em>
                                         <br />{experience.from.month} {experience.from.year}
-                                        &nbsp;- {experience.to.month} {experience.to.year ? experience.to.year : new Date().getFullYear()},
+                                        &nbsp;- {experience.to.month ? experience.to.month : new Date().getMonth()}
+                                        &nbsp;{experience.to.year ? experience.to.year : new Date().getFullYear()},
                                         &nbsp;{experience.location}
                                     </div>
                                     <div><em>{experience.description}</em></div>
