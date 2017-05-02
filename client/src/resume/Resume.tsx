@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as Moment from "moment";
 
 import {
     IBasicInformation,
@@ -16,6 +17,14 @@ export interface IResumeState {
 }
 
 export class Resume extends React.Component<undefined, IResumeState> {
+    getNowMonth(): string {
+        return Moment().format("MMM");
+    }
+
+    getNowYear(): number {
+        return Moment().year();
+    }
+
     render(): JSX.Element {
         var data: IResumeData = ResumeData;
 
@@ -67,8 +76,8 @@ export class Resume extends React.Component<undefined, IResumeState> {
                                     <div><strong>{experience.title}</strong>
                                         <br />{experience.organization.division} @ <em>{experience.organization.name}</em>
                                         <br />{experience.from.month} {experience.from.year}
-                                        &nbsp;- {experience.to.month ? experience.to.month : new Date().getMonth()}
-                                        &nbsp;{experience.to.year ? experience.to.year : new Date().getFullYear()},
+                                        &nbsp;- {experience.to.month ? experience.to.month : this.getNowMonth()}
+                                        &nbsp;{experience.to.year ? experience.to.year : this.getNowYear()},
                                         &nbsp;{experience.location}
                                     </div>
                                     <div><em>{experience.description}</em></div>

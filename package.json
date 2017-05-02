@@ -44,6 +44,7 @@
   "dependencies": {
     "@types/jquery": "^2.0.41",
     "@types/lodash": "^4.14.63",
+    "@types/moment": "^2.13.0",
     "@types/prop-types": "^15.5.1",
     "@types/react": "^15.0.23",
     "@types/react-dom": "^15.5.0",
@@ -53,6 +54,7 @@
     "express": "^4.15.2",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
