@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import "../styles/main.less";
 
@@ -12,7 +12,7 @@ interface IAppState {
 }
 
 export class App extends React.Component<undefined, IAppState> {
-    render() {
+    render(): JSX.Element {
         return (
             <Router>
                 <div>

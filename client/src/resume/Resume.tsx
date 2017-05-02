@@ -1,13 +1,13 @@
 import * as React from "react";
 
 import {
-    Basic,
-    Education,
-    Experience,
+    IBasicInformation,
+    IEducation,
+    IExperience,
     IResumeData,
-    Organization,
-    Skill,
-    TimePeriod
+    IOrganization,
+    ISkill,
+    ITimePeriod
 } from "./interfaces";
 
 import * as ResumeData from "../../../data/resume.json";
@@ -16,7 +16,7 @@ export interface IResumeState {
 }
 
 export class Resume extends React.Component<undefined, IResumeState> {
-    render() {
+    render(): JSX.Element {
         var data: IResumeData = ResumeData;
 
         return (

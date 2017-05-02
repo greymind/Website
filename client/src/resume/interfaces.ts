@@ -1,4 +1,4 @@
-export interface Basic {
+export interface IBasicInformation {
     name: string;
     title: string;
     passion: string;
@@ -11,39 +11,39 @@ export interface Basic {
     phone: string;
 }
 
-export interface Education {
+export interface IEducation {
     degree: string;
     school: string;
     focus: string;
 }
 
-export interface Skill {
+export interface ISkill {
     category: string;
     items: string[];
 }
 
-export interface Organization {
+export interface IOrganization {
     name: string;
     division: string;
 }
 
-export interface TimePeriod {
+export interface ITimePeriod {
     month: string;
     year: number;
 }
 
-export interface Experience {
+export interface IExperience {
     title: string;
-    organization: Organization;
+    organization: IOrganization;
     location: string;
-    from: TimePeriod;
-    to: TimePeriod;
+    from: ITimePeriod;
+    to: ITimePeriod;
     description: string;
 }
 
 export interface IResumeData {
-    basics: Basic;
-    education: Education[];
-    skills: Skill[];
-    experience: Experience[];
+    basics: IBasicInformation;
+    education: IEducation[];
+    skills: ISkill[];
+    experience: IExperience[];
 }
