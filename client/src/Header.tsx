@@ -5,36 +5,36 @@ import {
     BrowserRouter as Router,
     Route,
     NavLink
-} from 'react-router-dom';
+} from "react-router-dom";
 
-import * as Projects from "../../data/projects.json"
+import * as Projects from "../../data/projects.json";
 import { ICategory, IProject, IProjectMenuItem } from "./projects/interfaces";
 import { ListItemNavLink } from "./framework/ListItemNavLink";
 
 const categories: ICategory[] = Projects;
-const menuItems = _.flatMap(categories, (category) => {
-    var categoryItem: IProjectMenuItem =
-        {
-            isCategory: true,
-            name: category.category
-        };
+const menuItems: IProjectMenuItem[] = _.flatMap(categories, (category) => {
+    var categoryItem: IProjectMenuItem = {
+        isCategory: true,
+        name: category.category
+    };
 
     return [categoryItem].concat(category.projects.map((project) => {
         return {
             name: project.name,
             url: project.url
-        }
+        };
     }));
 });
 
 export class Header extends React.Component<undefined, undefined> {
-    render() {
+    render(): JSX.Element {
         return (
             <div>
                 <nav className="navbar navbar-default navbar-fixed-top">
                     <div className="container-fluid">
                         <div className="navbar-header">
-                            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#g-header-navbar-collapse" aria-expanded="false">
+                            <button type="button" className="navbar-toggle collapsed"
+                                data-toggle="collapse" data-target="#g-header-navbar-collapse" aria-expanded="false">
                                 <span className="sr-only">Toggle navigation</span>
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
@@ -46,7 +46,9 @@ export class Header extends React.Component<undefined, undefined> {
                             <ul className="nav navbar-nav">
                                 <ListItemNavLink to="/home">Home</ListItemNavLink>
                                 <li className="dropdown">
-                                    <a className="dropdown-toggle" data-toggle="dropdown" role="button">Projects<span className="caret"></span></a>
+                                    <a className="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        Projects<span className="caret"></span>
+                                    </a>
                                     <ul className="dropdown-menu">
                                         {menuItems.map((menuItem, menuItemIndex) =>
                                             menuItem.isCategory

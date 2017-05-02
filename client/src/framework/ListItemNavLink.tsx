@@ -1,8 +1,6 @@
 import * as React from "react";
 import * as PropTypes from "prop-types";
-import { NavLinkProps, NavLink } from "react-router-dom";
-import { RouterChildContext } from "react-router-dom";
-import { matchPath } from "react-router-dom";
+import { NavLinkProps, NavLink, RouterChildContext, matchPath, match } from "react-router-dom";
 
 interface IListItemNavLinkContext extends RouterChildContext<any> { }
 
@@ -18,7 +16,7 @@ export class ListItemNavLink extends React.Component<NavLinkProps, undefined> {
     };
 
     isActive = () => {
-        var match: any = matchPath(this.context.router.route.location.pathname, {
+        var match: match<any> = matchPath(this.context.router.route.location.pathname, {
             exact: this.props.exact,
             strict: this.props.strict,
             path: this.props.to.toString()
