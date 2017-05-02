@@ -183,6 +183,23 @@
     ],
     "experience": [
         {
+            "title": "Senior Software Engineer",
+            "organization": {
+                "name": "HR Cloud / NEOGOV",
+                "division": "Research and Development"
+            },
+            "location": "Split - Croatia",
+            "from": {
+                "month": "October",
+                "year": 2015
+            },
+            "to": {
+                "month": "Now",
+                "year": null
+            },
+            "description": "Full-stack developer on a large, multi-tenant project."
+        },
+        {
             "title": "Research Assistant",
             "organization": {
                 "name": "University of Southern California",
@@ -367,7 +384,7 @@
                 "month": "April",
                 "year": 2007
             },
-            "description": "Developed samples and tutorials on networking, video games, user experience, device programming and robotics. Taught new and pre-release software and frameworks to students and instructors all over the country and helped develop customized solutions based on their needs. Delivered many presentations to large audiences, conducted hands-on lab sessions and live TV tutorials."
+            "description": "Developed samples and tutorials on web development, networking, video games, user experience, device programming and robotics. Taught new and pre-release software and frameworks to students and instructors all over the country and helped develop customized solutions based on their needs. Delivered many presentations to large audiences, conducted hands-on lab sessions and live TV tutorials."
         }
     ]
 }
