@@ -7,9 +7,10 @@ import {
     NavLink
 } from "react-router-dom";
 
-import * as Projects from "../../data/projects.json";
 import { ICategory, IProject, IProjectMenuItem } from "./projects/interfaces";
 import { ListItemNavLink } from "./framework/ListItemNavLink";
+
+import * as Projects from "../../data/projects.json";
 
 const categories: ICategory[] = Projects;
 const menuItems: IProjectMenuItem[] = _.flatMap(categories, (category) => {
@@ -26,45 +27,43 @@ const menuItems: IProjectMenuItem[] = _.flatMap(categories, (category) => {
     }));
 });
 
-export class Header extends React.Component<undefined, undefined> {
-    render(): JSX.Element {
-        return (
-            <div>
-                <nav className="navbar navbar-default navbar-fixed-top">
-                    <div className="container-fluid">
-                        <div className="navbar-header">
-                            <button type="button" className="navbar-toggle collapsed"
-                                data-toggle="collapse" data-target="#g-header-navbar-collapse" aria-expanded="false">
-                                <span className="sr-only">Toggle navigation</span>
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
-                            </button>
-                            <NavLink className="pull-left greymind-logo" to="/home"></NavLink>
-                        </div>
-                        <div className="collapse navbar-collapse" id="g-header-navbar-collapse">
-                            <ul className="nav navbar-nav">
-                                <ListItemNavLink to="/home">Home</ListItemNavLink>
-                                <li className="dropdown">
-                                    <a className="dropdown-toggle" data-toggle="dropdown" role="button">
-                                        Projects<span className="caret"></span>
-                                    </a>
-                                    <ul className="dropdown-menu">
-                                        {menuItems.map((menuItem, menuItemIndex) =>
-                                            menuItem.isCategory
-                                                ? <li key={menuItemIndex} className="dropdown-header">{menuItem.name}</li>
-                                                : <li key={menuItemIndex}><a target="_blank" href={menuItem.url}>{menuItem.name}</a></li>
-                                        )}
-                                    </ul>
-                                </li>
-                            </ul>
-                            <ul className="nav navbar-nav navbar-right">
-                                <ListItemNavLink to="/resume">About Balki</ListItemNavLink>
-                            </ul>
-                        </div>
+export const Header: React.StatelessComponent<undefined> = () => {
+    return (
+        <div>
+            <nav className="navbar navbar-default navbar-fixed-top">
+                <div className="container-fluid">
+                    <div className="navbar-header">
+                        <button type="button" className="navbar-toggle collapsed"
+                            data-toggle="collapse" data-target="#g-header-navbar-collapse" aria-expanded="false">
+                            <span className="sr-only">Toggle navigation</span>
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                        </button>
+                        <NavLink className="pull-left greymind-logo" to="/home"></NavLink>
                     </div>
-                </nav>
-            </div >
-        );
-    }
-}
+                    <div className="collapse navbar-collapse" id="g-header-navbar-collapse">
+                        <ul className="nav navbar-nav">
+                            <ListItemNavLink to="/home">Home</ListItemNavLink>
+                            <li className="dropdown">
+                                <a className="dropdown-toggle" data-toggle="dropdown" role="button">
+                                    Projects<span className="caret"></span>
+                                </a>
+                                <ul className="dropdown-menu">
+                                    {menuItems.map((menuItem, menuItemIndex) =>
+                                        menuItem.isCategory
+                                            ? <li key={menuItemIndex} className="dropdown-header">{menuItem.name}</li>
+                                            : <li key={menuItemIndex}><a target="_blank" href={menuItem.url}>{menuItem.name}</a></li>
+                                    )}
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul className="nav navbar-nav navbar-right">
+                            <ListItemNavLink to="/resume">About Balki</ListItemNavLink>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div >
+    );
+};
