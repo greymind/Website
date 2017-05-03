@@ -5,6 +5,6 @@ export const Home: React.StatelessComponent<undefined> = () => {
         <div >
             <h1>Welcome to Greymind!</h1>
             <p>Nothing to show here, any ideas? :P</p>
-        </div >
+        </div>
     );
 };
