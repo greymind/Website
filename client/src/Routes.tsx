@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { IRouteWithSubRoutesProps } from "./framework/RouteWithSubroutes";
+import { IRouteWithSubRoutesProps } from "./framework/RouteWithSubRoutes";
 
 import { Home } from "./Home";
 import { Resume } from "./resume/Resume";
