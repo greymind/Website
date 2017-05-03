@@ -4,34 +4,30 @@ import { NavLinkProps, NavLink, RouterChildContext, matchPath, match } from "rea
 
 interface IListItemNavLinkContext extends RouterChildContext<any> { }
 
-export class ListItemNavLink extends React.Component<NavLinkProps, undefined> {
-    static defaultProps: Partial<NavLinkProps> = {
-        activeClassName: "active"
-    };
-
-    context: IListItemNavLinkContext;
-
-    static contextTypes = {
-        router: PropTypes.object.isRequired
-    };
-
-    isActive = () => {
-        var match: match<any> = matchPath(this.context.router.route.location.pathname, {
-            exact: this.props.exact,
-            strict: this.props.strict,
-            path: this.props.to.toString()
+export const ListItemNavLink: React.StatelessComponent<NavLinkProps> = (props, context: IListItemNavLinkContext) => {
+    function isActive(): boolean {
+        var match: match<any> = matchPath(context.router.route.location.pathname, {
+            exact: props.exact,
+            strict: props.strict,
+            path: props.to.toString()
         });
 
         return !!match;
     }
 
-    render(): JSX.Element {
-        return (
-            <li className={this.isActive() ? this.props.activeClassName : ""}>
-                <NavLink {...this.props}>
-                    {this.props.children}
-                </NavLink>
-            </li>
-        );
-    }
-}
+    return (
+        <li className={isActive() ? props.activeClassName : ""}>
+            <NavLink {...props}>
+                {props.children}
+            </NavLink>
+        </li>
+    );
+};
+
+ListItemNavLink.defaultProps = {
+    activeClassName: "active"
+};
+
+ListItemNavLink.contextTypes = {
+    router: PropTypes.object.isRequired
+};
