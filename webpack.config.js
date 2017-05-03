@@ -14,6 +14,7 @@ const env = process.env.NODE_ENV || Environment.dev;
 const devServerPort = 8081;
 
 const distPath = "client/dist";
+const srcPath = "client/src";
 
 const cleanPaths = [distPath];
 const cleanOptions = {
@@ -26,16 +27,15 @@ const extractLess = new ExtractTextPlugin({
     disable: env === Environment.dev
 });
 
-var webpackDevServer = [];
-if (env == Environment.dev) {
-    webpackDevServer = [
+const devEntries = (env == Environment.dev)
+    ? [
         `webpack-dev-server/client?http://127.0.0.1:${devServerPort}`,
-        "webpack/hot/only-dev-server",
+        "webpack/hot/only-dev-server"
     ]
-}
+    : [];
 
 module.exports = {
-    entry: webpackDevServer.concat("./client/src/App.tsx"),
+    entry: devEntries.concat(path.join(__dirname, srcPath, "App.tsx")),
     output: {
         filename: "bundle.[hash].js",
         path: path.join(__dirname, distPath),
@@ -52,7 +52,7 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                exclude: /node_modules/,
+                include: path.join(__dirname, srcPath),
                 loader: "awesome-typescript-loader"
             },
             {
