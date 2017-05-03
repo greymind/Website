@@ -1,4 +1,4 @@
-export interface IBasicInformation {
+export interface IBasics {
     name: string;
     title: string;
     passion: string;
@@ -42,7 +42,7 @@ export interface IExperience {
 }
 
 export interface IResumeData {
-    basics: IBasicInformation;
+    basics: IBasics;
     education: IEducation[];
     skills: ISkill[];
     experience: IExperience[];
