@@ -26,12 +26,16 @@ const extractLess = new ExtractTextPlugin({
     disable: env === Environment.dev
 });
 
-module.exports = {
-    entry: [
+var webpackDevServer = [];
+if (env == Environment.dev) {
+    webpackDevServer = [
         `webpack-dev-server/client?http://127.0.0.1:${devServerPort}`,
         "webpack/hot/only-dev-server",
-        "./client/src/App.tsx",
-    ],
+    ]
+}
+
+module.exports = {
+    entry: webpackDevServer.concat("./client/src/App.tsx"),
     output: {
         filename: "bundle.[hash].js",
         path: path.join(__dirname, distPath),
@@ -110,6 +114,6 @@ module.exports = {
             warnings: true,
             errors: true
         },
-        hot: true
+        hot: env === Environment.dev
     }
 };
