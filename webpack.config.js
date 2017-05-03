@@ -11,6 +11,7 @@ const Environment = {
 }
 
 const env = process.env.NODE_ENV || Environment.dev;
+const devServerPort = 8081;
 
 const distPath = "client/dist";
 
@@ -26,10 +27,15 @@ const extractLess = new ExtractTextPlugin({
 });
 
 module.exports = {
-    entry: "./client/src/App.tsx",
+    entry: [
+        `webpack-dev-server/client?http://127.0.0.1:${devServerPort}`,
+        "webpack/hot/only-dev-server",
+        "./client/src/App.tsx",
+    ],
     output: {
         filename: "bundle.[hash].js",
-        path: path.join(__dirname, distPath)
+        path: path.join(__dirname, distPath),
+        publicPath: ""
     },
 
     devtool: "source-map",
@@ -42,6 +48,7 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
+                exclude: /node_modules/,
                 loader: "awesome-typescript-loader"
             },
             {
@@ -98,10 +105,11 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, distPath),
         compress: true,
-        port: 8081,
+        port: devServerPort,
         overlay: {
             warnings: true,
             errors: true
-        }
+        },
+        hot: true
     }
 };
