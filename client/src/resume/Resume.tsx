@@ -13,7 +13,15 @@ import {
 
 import * as ResumeData from "../../../data/resume.json";
 
-export class Resume extends React.Component<undefined, undefined> {
+interface IResumeProps {
+    data: IResumeData;
+}
+
+export class Resume extends React.Component<IResumeProps, undefined> {
+    static defaultProps: Partial<IResumeProps> = {
+        data: ResumeData
+    };
+
     getNowMonth(): string {
         return Moment().format("MMM");
     }
@@ -23,7 +31,7 @@ export class Resume extends React.Component<undefined, undefined> {
     }
 
     render(): JSX.Element {
-        var data: IResumeData = ResumeData;
+        var data: IResumeData = this.props.data;
 
         return (
             <div>
