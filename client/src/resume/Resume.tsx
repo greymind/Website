@@ -13,10 +13,7 @@ import {
 
 import * as ResumeData from "../../../data/resume.json";
 
-export interface IResumeState {
-}
-
-export class Resume extends React.Component<undefined, IResumeState> {
+export class Resume extends React.Component<undefined, undefined> {
     getNowMonth(): string {
         return Moment().format("MMM");
     }
