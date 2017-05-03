@@ -6,7 +6,8 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import "../styles/main.less";
 
 import { Header } from "./Header";
-import { Routes, RouteWithSubRoutes } from "./Routes";
+import { Routes } from "./Routes";
+import { RouteWithSubRoutes } from "./framework/RouteWithSubroutes";
 
 interface IAppState {
 }

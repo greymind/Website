@@ -5,21 +5,12 @@ import { Route, RouteProps } from "react-router-dom";
 import { Home } from "./Home";
 import { Resume } from "./resume/Resume";
 
-interface IRouteProps extends RouteProps {
+export interface IRoutesProps extends RouteProps {
     component?: any;
-    routes?: IRouteProps[];
+    routes?: IRoutesProps[];
 }
 
-export const RouteWithSubRoutes: React.StatelessComponent<IRouteProps> = (route) => {
-    return (
-        <Route path={route.path} render={props => (
-            // pass the sub-routes down to keep nesting
-            <route.component {...props} routes={route.routes} />
-        )} />
-    );
-};
-
-export const Routes: IRouteProps[] = [
+export const Routes: IRoutesProps[] = [
     {
         path: "/",
         component: Home as any,
