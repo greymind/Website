@@ -1,11 +1,14 @@
 {
     "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
         "outDir": "./client/dist/",
+        "jsx": "react",
         "sourceMap": true,
         "noImplicitAny": true,
-        "module": "commonjs",
-        "target": "es5",
-        "jsx": "react"
+        "experimentalDecorators": true,
+        "declaration": false,
+        "noLib": false
     },
     "include": [
         "./client/src/**/*",
