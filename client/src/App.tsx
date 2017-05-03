@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import "../styles/main.less";
 
