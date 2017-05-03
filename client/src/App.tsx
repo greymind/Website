@@ -7,7 +7,7 @@ import "../styles/main.less";
 
 import { Header } from "./Header";
 import { Routes } from "./Routes";
-import { RouteWithSubRoutes } from "./framework/RouteWithSubroutes";
+import { RouteWithSubRoutes } from "./framework/RouteWithSubRoutes";
 
 interface IAppState {
 }
