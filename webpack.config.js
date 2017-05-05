@@ -103,7 +103,9 @@ module.exports = {
     externals: {
         "jQuery": "JQuery",
         "react": "React",
-        "react-dom": "ReactDOM"
+        "react-dom": "ReactDOM",
+        // "redux": "Redux",
+        // "react-redux": "ReactRedux"
     },
 
     devServer: {

@@ -1,38 +1,33 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
 
 import "../styles/main.less";
 
+import { store } from "./store";
 import { Header } from "./Header";
 import { Routes } from "./Routes";
 import { RouteWithSubRoutes } from "./framework/RouteWithSubRoutes";
 
-interface IAppState {
-}
-
-export class App extends React.Component<undefined, IAppState> {
-    render(): JSX.Element {
-        return (
-            <Router>
-                <div>
-                    <Header />
-                    <div className="container-fluid">
-                        <Switch>
-                            {Routes.map((route, i) => (
-                                <RouteWithSubRoutes key={i} {...route} />
-                            ))}
-                        </Switch>
-                    </div>
-                </div>
-            </Router>
-        );
-    }
-}
+export const App = () =>
+    <Router>
+        <div>
+            <Header />
+            <div className="container-fluid">
+                <Switch>
+                    {Routes.map((route, i) => (
+                        <RouteWithSubRoutes key={i} {...route} />
+                    ))}
+                </Switch>
+            </div>
+        </div>
+    </Router>
 
 ReactDOM.render(
-    <App />,
+    <Provider store={store}>
+        <App />
+    </Provider>,
     document.getElementById("app")
 );
 
