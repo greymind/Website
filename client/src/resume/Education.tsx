@@ -15,7 +15,7 @@ export const Education: React.StatelessComponent<IEducationProps> = ({ education
                     </h3>
                 </a>
             </div>
-            <ul className="list-group panel-collapse collapse in">
+            <ul id="EducationList" className="list-group panel-collapse collapse in">
                 {education.map((ed, edIndex) =>
                     <li key={edIndex} className="list-group-item">
                         <div><strong>{ed.degree}</strong>

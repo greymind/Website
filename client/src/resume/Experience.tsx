@@ -25,7 +25,7 @@ export const Experience: React.StatelessComponent<IExperienceProps> = ({ experie
                     </h3>
                 </a>
             </div>
-            <ul className="list-group panel-collapse collapse in">
+            <ul id="ExperienceList" className="list-group panel-collapse collapse in">
                 {experience.map((exp, expIndex) =>
                     <li key={expIndex} className="list-group-item">
                         <div><strong>{exp.title}</strong>

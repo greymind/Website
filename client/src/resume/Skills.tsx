@@ -15,7 +15,7 @@ export const Skills: React.StatelessComponent<ISkillsProps> = ({ skills }) => {
                     </h3>
                 </a>
             </div>
-            <ul className="list-group panel-collapse collapse in">
+            <ul id="SkillsList" className="list-group panel-collapse collapse in">
                 {skills.map((skill, skillIndex) =>
                     <li key={skillIndex} className="list-group-item">
                         <strong>{skill.category} | </strong>
