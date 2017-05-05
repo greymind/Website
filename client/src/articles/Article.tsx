@@ -11,11 +11,13 @@ interface IArticleProp extends IArticle { }
 interface IActionButtonProps {
     icon: string;
     title: string;
+    onClick: React.MouseEventHandler<any>;
 }
 
-export const ActionButton = ({ icon, title }: IActionButtonProps) =>
+export const ActionButton = ({ icon, title, onClick }: IActionButtonProps) =>
     <button className="btn btn-default btn-sm"
         ref={button => { $(button).tooltip() }}
+        onClick={onClick}
         data-toggle="tooltip" data-placement="bottom" title={title}>
         <span className={`glyphicon ${icon}`} aria-hidden="true"></span>
     </button>
@@ -34,13 +36,17 @@ export const Article = (article: IArticleProp) =>
         </div>
         <div className="row footer">
             <div className="col-xs-6 actions">
-                <ActionButton icon="glyphicon-pencil" title="Edit" />
+                <ActionButton icon="glyphicon-pencil" title="Edit"
+                    onClick={e => null} />
                 {" "}
-                <ActionButton icon="glyphicon-trash" title="Delete" />
+                <ActionButton icon="glyphicon-trash" title="Delete"
+                    onClick={e => null} />
                 {" "}
-                <ActionButton icon="glyphicon-ok" title="Save" />
+                <ActionButton icon="glyphicon-ok" title="Save"
+                    onClick={e => null} />
                 {" "}
-                <ActionButton icon="glyphicon-remove" title="Cancel" />
+                <ActionButton icon="glyphicon-remove" title="Cancel"
+                    onClick={e => null} />
             </div>
             <div className="author col-xs-6 text-right">
                 <span>
