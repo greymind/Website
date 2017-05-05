@@ -1,4 +1,7 @@
 import * as React from "react";
+import { connect } from "react-redux";
+
+import { IAppState } from "../store";
 
 import { IResumeData } from "./interfaces";
 import { Basics } from "./Basics";
@@ -6,13 +9,11 @@ import { Skills } from "./Skills";
 import { Experience } from "./Experience";
 import { Education } from "./Education";
 
-import * as ResumeData from "../../../data/resume.json";
-
 interface IResumeProps {
     data: IResumeData;
 }
 
-export const Resume: React.StatelessComponent<IResumeProps> = ({ data }) => {
+const ResumeView = ({ data }: IResumeProps) => {
     return (
         <div>
             <Basics {...data.basics} />
@@ -27,6 +28,12 @@ export const Resume: React.StatelessComponent<IResumeProps> = ({ data }) => {
     );
 };
 
-Resume.defaultProps = {
-    data: ResumeData
-};
+var mapStateToProps = (state: IAppState) => {
+    return {
+        data: state.resume
+    } as IResumeProps;
+}
+
+export const Resume = connect(
+    mapStateToProps
+)(ResumeView);

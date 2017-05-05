@@ -1,11 +1,23 @@
-import { createStore, Store, Reducer, Action } from "redux";
+import { createStore, Reducer, Action } from "redux";
 import { devToolsEnhancer, composeWithDevTools } from 'redux-devtools-extension';
 
-export interface IAppState {
+import * as Projects from "../../data/projects.json";
+import { ICategory } from "./projects/interfaces";
 
+import * as ResumeData from "../../data/resume.json";
+import { IResumeData } from "./resume/interfaces";
+
+export interface IAppState {
+    resume: IResumeData;
+    projects: ICategory[];
 }
 
-const reducer = (state: IAppState = {}, action: Action) => {
+const defaultState: IAppState = {
+    resume: ResumeData,
+    projects: Projects
+};
+
+const reducer = (state: IAppState = defaultState, action: Action) => {
     switch (action.type) {
         case "BALKI":
             return state;
@@ -15,5 +27,3 @@ const reducer = (state: IAppState = {}, action: Action) => {
 };
 
 export const store = createStore<IAppState>(reducer, devToolsEnhancer({}));
-
-console.log(store.getState());

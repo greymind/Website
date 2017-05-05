@@ -7,25 +7,8 @@ import {
     NavLink
 } from "react-router-dom";
 
-import { ICategory, IProject, IProjectMenuItem } from "./projects/interfaces";
 import { ListItemNavLink } from "./framework/ListItemNavLink";
-
-import * as Projects from "../../data/projects.json";
-
-const categories: ICategory[] = Projects;
-const menuItems: IProjectMenuItem[] = _.flatMap(categories, (category) => {
-    var categoryItem: IProjectMenuItem = {
-        isCategory: true,
-        name: category.category
-    };
-
-    return [categoryItem].concat(category.projects.map((project) => {
-        return {
-            name: project.name,
-            url: project.url
-        };
-    }));
-});
+import { Projects } from "./projects/Projects";
 
 export const Header = () =>
     <div>
@@ -44,18 +27,7 @@ export const Header = () =>
                 <div className="collapse navbar-collapse" id="g-header-navbar-collapse">
                     <ul className="nav navbar-nav">
                         <ListItemNavLink to="/home">Home</ListItemNavLink>
-                        <li className="dropdown">
-                            <a className="dropdown-toggle" data-toggle="dropdown" role="button">
-                                Projects<span className="caret"></span>
-                            </a>
-                            <ul className="dropdown-menu">
-                                {menuItems.map((menuItem, menuItemIndex) =>
-                                    menuItem.isCategory
-                                        ? <li key={menuItemIndex} className="dropdown-header">{menuItem.name}</li>
-                                        : <li key={menuItemIndex}><a target="_blank" href={menuItem.url}>{menuItem.name}</a></li>
-                                )}
-                            </ul>
-                        </li>
+                        <Projects />
                     </ul>
                     <ul className="nav navbar-nav navbar-right">
                         <ListItemNavLink to="/resume">About Balki</ListItemNavLink>

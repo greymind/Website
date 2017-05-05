@@ -1,0 +1,49 @@
+import * as React from "react";
+import { connect } from "react-redux";
+import * as _ from "lodash";
+
+import { IAppState } from "../store";
+
+import { ICategory, IProject, IProjectMenuItem } from "./interfaces";
+
+interface IProjectsViewProps {
+    menuItems: IProjectMenuItem[];
+}
+
+const ProjectsView = ({ menuItems }: IProjectsViewProps) =>
+    <li className="dropdown">
+        <a className="dropdown-toggle" data-toggle="dropdown" role="button">
+            Projects<span className="caret"></span>
+        </a>
+        <ul className="dropdown-menu">
+            {menuItems.map((menuItem, menuItemIndex) =>
+                menuItem.isCategory
+                    ? <li key={menuItemIndex} className="dropdown-header">{menuItem.name}</li>
+                    : <li key={menuItemIndex}><a target="_blank" href={menuItem.url}>{menuItem.name}</a></li>
+            )}
+        </ul>
+    </li>
+
+const mapStateToProps = (state: IAppState) => {
+    var menuItems = _.flatMap(state.projects, (category: ICategory) => {
+        var categoryItem: IProjectMenuItem = {
+            isCategory: true,
+            name: category.category
+        };
+
+        return [categoryItem].concat(category.projects.map((project) => {
+            return {
+                name: project.name,
+                url: project.url
+            };
+        }));
+    });
+
+    return {
+        menuItems
+    } as IProjectsViewProps
+};
+
+export const Projects = connect(
+    mapStateToProps
+)(ProjectsView);
