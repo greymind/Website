@@ -1,6 +1,6 @@
 #!/bin/sh
 
-git reset --HARD
+git reset --hard
 git pull
 
 NODE_ENV=development
