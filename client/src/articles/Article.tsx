@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as Moment from "moment";
+import * as  ReactMarkdown from 'react-markdown';
 
 import { IArticle } from "./interfaces";
 import "./article.less";
@@ -15,17 +16,17 @@ export const Article = (article: IArticleProp) =>
         </div>
         <div className="row">
             <div className="content col-xs-12 text-justify">
-                {article.content}
+                <ReactMarkdown source={article.content} />
             </div>
         </div>
         <div className="row">
-            <div className="author col-xs-offset-6 col-xs-6 text-right">
-                <span className="text-uppercase">
+            <div className="author col-xs-12 text-right">
+                <span>
                     {article.author}
                 </span>
                 <br />
                 <small>
-                    {Moment(article.timestamp).format("dddd, MMMM Do YYYY")}
+                    {Moment(article.timestamp).format("MMMM Do YYYY")}
                 </small>
             </div>
         </div>
