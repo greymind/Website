@@ -1,7 +1,7 @@
 import * as React from "react";
+import { Articles } from "./articles/Articles";
 
 export const Home = () =>
     <div>
-        <h1>Welcome to Greymind!</h1>
-        <p>Nothing to show here, any ideas? :P</p>
+        <Articles />
     </div>
