@@ -25,7 +25,7 @@ const ArticleList = ({ articles }: IArticleListProps) =>
 const mapStateToProps = (state: IAppState) => {
     return {
         articles: state.articles
-    } as IArticleListProps;
+    } as Partial<IArticleListProps>;
 }
 
 export const Articles = connect(

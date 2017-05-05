@@ -48,7 +48,7 @@ const mapStateToProps = (state: IAppState) => {
 
     return {
         menuItems
-    } as IProjectsListProps
+    } as Partial<IProjectsListProps>;
 };
 
 export const Projects = connect(

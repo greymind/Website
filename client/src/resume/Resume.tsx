@@ -31,7 +31,7 @@ const ResumeView = ({ data }: IResumeProps) => {
 var mapStateToProps = (state: IAppState) => {
     return {
         data: state.resume
-    } as IResumeProps;
+    } as Partial<IResumeProps>;
 }
 
 export const Resume = connect(

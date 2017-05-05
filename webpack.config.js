@@ -101,10 +101,12 @@ module.exports = {
     ],
 
     externals: {
-        "jQuery": "JQuery",
+        // "lodash": "_",
+        "jquery": "jQuery",
         "react": "React",
         "react-dom": "ReactDOM",
-        // "redux": "Redux",
+        //"react-router": "ReactRouter",
+        //"redux": "Redux",
         // "react-redux": "ReactRedux"
     },
 
