@@ -26,9 +26,7 @@ const generateActionCreators = () => {
     })
 }
 
-generateActionCreators();
-
-export const rootReducer = (state: IAppState, action: IActionBase) => {
+const rootReducer = (state: IAppState, action: IActionBase) => {
     var reducers = StoreApi.getReducers();
 
     if (reducers.length == 0)
@@ -53,7 +51,7 @@ export const rootReducer = (state: IAppState, action: IActionBase) => {
     return finalState;
 };
 
-export const configureStore = (preloadedState: IAppState) => {
+const configureStore = (preloadedState: IAppState) => {
     const store = createStore<IAppState>(
         rootReducer,
         preloadedState,
@@ -62,5 +60,7 @@ export const configureStore = (preloadedState: IAppState) => {
 
     return store;
 }
+
+generateActionCreators();
 
 export const store = configureStore(defaultState);

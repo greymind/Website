@@ -29,19 +29,19 @@ export class ActionCreators extends ActionCreatorsIndexer {
 
 }
 
-export class StoreApi {
-    public static actionTypes = new ActionTypes();
-    public static actionCreators = new ActionCreators();
+class StoreApiInternal {
+    actionTypes = new ActionTypes();
+    actionCreators = new ActionCreators();
 
-    private static actionReducers: IActionReducer[] = [];
+    private actionReducers: IActionReducer[] = [];
 
-    public static addGlobalReducer = (reducer: ActionReducer, options?: IActionReducerOptions) => {
-        StoreApi.addReducer(null, reducer, options);
+    addGlobalReducer = (reducer: ActionReducer, options?: IActionReducerOptions) => {
+        this.addReducer(null, reducer, options);
     }
 
-    public static addReducer = (actionType: ActionType, reducer: ActionReducer, options?: IActionReducerOptions) => {
-        StoreApi.actionReducers = [
-            ...StoreApi.actionReducers,
+    addReducer = (actionType: ActionType, reducer: ActionReducer, options?: IActionReducerOptions) => {
+        this.actionReducers = [
+            ...this.actionReducers,
             {
                 reducer: reducer,
                 actionType: actionType,
@@ -50,5 +50,7 @@ export class StoreApi {
         ]
     }
 
-    public static getReducers = () => StoreApi.actionReducers;
+    getReducers = () => this.actionReducers;
 }
+
+export const StoreApi = new StoreApiInternal();

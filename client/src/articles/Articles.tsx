@@ -13,15 +13,18 @@ const ActionCreators = StoreApi.actionCreators;
 interface IArticleListProps {
     articles: IArticle[];
     onEdit: (id: number, content: string) => void;
+    onDelete: (id: number) => void;
 }
 
-const ArticleList = ({ articles, onEdit }: IArticleListProps) =>
+const ArticleList = ({ articles, onEdit, onDelete }: IArticleListProps) =>
     <div className="row">
         {_.chain(articles)
             .sortBy(article => -article.timestamp)
             .take(100)
             .map((article, articleIndex) =>
-                <Article key={articleIndex} article={article} onEdit={onEdit} />
+                <Article key={articleIndex} article={article}
+                    onEdit={onEdit}
+                    onDelete={onDelete} />
             )
             .value()}
     </div>
@@ -36,6 +39,9 @@ const mapDispatchToProps = (dispatch: Dispatch<IAppState>) => {
     return {
         onEdit: (id, content) => {
             dispatch(ActionCreators.articlesSave({ id, content: content + "blah" }));
+        },
+        onDelete: (id) => {
+            dispatch(ActionCreators.articlesDelete({ id }));
         }
     } as IArticleListProps;
 }

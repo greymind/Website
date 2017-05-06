@@ -9,6 +9,7 @@ import "./article.less";
 interface IArticleProp {
     article: IArticle;
     onEdit: (id: number, content: string) => void;
+    onDelete: (id: number) => void;
 }
 
 interface IActionButtonProps {
@@ -25,7 +26,7 @@ export const ActionButton = ({ icon, title, onClick }: IActionButtonProps) =>
         <span className={`glyphicon ${icon}`} aria-hidden="true"></span>
     </button>
 
-export const Article = ({ article, onEdit }: IArticleProp) =>
+export const Article = ({ article, onEdit, onDelete }: IArticleProp) =>
     <div className="article col-xs-offset-1 col-xs-10">
         <div className="row">
             <h3 className="title col-xs-12 text-left">
@@ -43,7 +44,7 @@ export const Article = ({ article, onEdit }: IArticleProp) =>
                     onClick={() => onEdit(article.id, article.content)} />
                 {" "}
                 <ActionButton icon="glyphicon-trash" title="Delete"
-                    onClick={() => onEdit(article.id, article.content)} />
+                    onClick={() => onDelete(article.id)} />
                 {" "}
                 <ActionButton icon="glyphicon-ok" title="Save"
                     onClick={() => onEdit(article.id, article.content)} />
