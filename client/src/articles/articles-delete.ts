@@ -15,7 +15,7 @@ interface IArticlesDeletePayload {
     id: number;
 }
 
-StoreApi.actionTypes.articlesDelete = "articlesDelete";
+StoreApi.actionTypes.articlesDelete = "articles-delete";
 
 StoreApi.addReducer(
     StoreApi.actionTypes.articlesDelete,

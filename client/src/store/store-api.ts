@@ -19,15 +19,17 @@ export interface IActionReducer {
     options?: IActionReducerOptions
 }
 
-export class ActionTypes { }
+class ActionTypesIndexer {
+    [name: string]: ActionType;
+}
+
+export class ActionTypes extends ActionTypesIndexer { }
 
 class ActionCreatorsIndexer {
     [name: string]: ActionCreator<undefined>;
 }
 
-export class ActionCreators extends ActionCreatorsIndexer {
-
-}
+export class ActionCreators extends ActionCreatorsIndexer { }
 
 class StoreApiInternal {
     actionTypes = new ActionTypes();

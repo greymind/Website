@@ -17,7 +17,7 @@ interface IArticlesSavePayload {
     content: string;
 }
 
-StoreApi.actionTypes.articlesSave = "articlesSave";
+StoreApi.actionTypes.articlesSave = "articles-save";
 
 StoreApi.addReducer(
     StoreApi.actionTypes.articlesSave,

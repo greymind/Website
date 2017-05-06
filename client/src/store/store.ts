@@ -16,7 +16,7 @@ const generateActionCreators = () => {
             StoreApi.actionCreators[actionType] =
                 (payload: any, error: boolean, meta: any) => {
                     return {
-                        type: actionType,
+                        type: StoreApi.actionTypes[actionType],
                         payload,
                         error,
                         meta
