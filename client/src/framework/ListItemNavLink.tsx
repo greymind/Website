@@ -6,7 +6,7 @@ interface IListItemNavLinkContext extends RouterChildContext<any> { }
 
 export const ListItemNavLink: React.StatelessComponent<NavLinkProps> = (props, context: IListItemNavLinkContext) => {
     function isActive(): boolean {
-        var match: match<any> = matchPath(context.router.route.location.pathname, {
+        var match = matchPath(context.router.route.location.pathname, {
             exact: props.exact,
             strict: props.strict,
             path: props.to.toString()
