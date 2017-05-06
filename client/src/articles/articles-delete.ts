@@ -20,7 +20,7 @@ StoreApi.actionTypes.articlesDelete = "articles-delete";
 StoreApi.addReducer(
     StoreApi.actionTypes.articlesDelete,
     (state, action: IAction<IArticlesDeletePayload, undefined>) => {
-        var { id } = action.payload;
+        var { id } = action.payload!;
 
         return {
             ...state,

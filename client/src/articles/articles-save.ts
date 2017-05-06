@@ -22,7 +22,7 @@ StoreApi.actionTypes.articlesSave = "articles-save";
 StoreApi.addReducer(
     StoreApi.actionTypes.articlesSave,
     (state, action: IAction<IArticlesSavePayload, undefined>) => {
-        var { id, content } = action.payload;
+        var { id, content } = action.payload!;
 
         return {
             ...state,

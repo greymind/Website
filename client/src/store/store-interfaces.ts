@@ -9,6 +9,6 @@ export interface IAppState {
     articles: IArticle[];
 }
 
-export interface IAction<TPayload, TError extends Error = undefined> extends IActionBase {
+export interface IAction<TPayload, TError extends Error | undefined = undefined> extends IActionBase {
     payload?: TPayload | TError;
 }

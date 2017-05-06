@@ -8,7 +8,9 @@
         "noImplicitAny": true,
         "experimentalDecorators": true,
         "declaration": false,
-        "noLib": false
+        "noLib": false,
+        "strictNullChecks": true,
+        "alwaysStrict": true
     },
     "include": [
         "./client/src/**/*",

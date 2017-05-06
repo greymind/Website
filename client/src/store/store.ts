@@ -16,7 +16,7 @@ const rootReducer = (state: IAppState, action: IActionBase) => {
         return state;
 
     var finalState = reducers.reduce((nextState, reducer) => {
-        if (!reducer.options.manualErrorHandling) {
+        if (!reducer.options!.manualErrorHandling) {
             if (action.error || action.payload instanceof Error)
                 throw action.payload;
         }

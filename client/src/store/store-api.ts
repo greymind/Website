@@ -16,7 +16,7 @@ export interface IActionReducerOptions {
 export interface IActionReducer {
     reducer: ActionReducer;
     actionType?: ActionType;
-    options?: IActionReducerOptions
+    options?: IActionReducerOptions;
 }
 
 class ActionTypesIndexer {
@@ -38,10 +38,10 @@ class StoreApiInternal {
     private actionReducers: IActionReducer[] = [];
 
     addGlobalReducer = (reducer: ActionReducer, options?: IActionReducerOptions) => {
-        this.addReducer(null, reducer, options);
+        this.addReducer(undefined, reducer, options);
     }
 
-    addReducer = (actionType: ActionType, reducer: ActionReducer, options?: IActionReducerOptions) => {
+    addReducer = (actionType: ActionType | undefined, reducer: ActionReducer, options?: IActionReducerOptions) => {
         this.actionReducers = [
             ...this.actionReducers,
             {
