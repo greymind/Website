@@ -53,6 +53,24 @@ class StoreApiInternal {
     }
 
     getReducers = () => this.actionReducers;
+
+    generateActionCreators = () => {
+        var actionTypes = Object.keys(this.actionTypes);
+        actionTypes.forEach(actionType => {
+            if (this.actionCreators[actionType] == null) {
+                this.actionCreators[actionType] =
+                    (payload: any, error: boolean, meta: any) => {
+                        return {
+                            type: this.actionTypes[actionType],
+                            payload,
+                            error,
+                            meta
+                        }
+                    };
+            }
+        })
+    }
+
 }
 
 export const StoreApi = new StoreApiInternal();

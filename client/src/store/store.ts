@@ -9,23 +9,6 @@ import { IActionBase } from "./IActionBase";
 
 import "./reducers";
 
-const generateActionCreators = () => {
-    var actionTypes = Object.keys(StoreApi.actionTypes);
-    actionTypes.forEach(actionType => {
-        if (StoreApi.actionCreators[actionType] == null) {
-            StoreApi.actionCreators[actionType] =
-                (payload: any, error: boolean, meta: any) => {
-                    return {
-                        type: StoreApi.actionTypes[actionType],
-                        payload,
-                        error,
-                        meta
-                    }
-                };
-        }
-    })
-}
-
 const rootReducer = (state: IAppState, action: IActionBase) => {
     var reducers = StoreApi.getReducers();
 
@@ -61,6 +44,6 @@ const configureStore = (preloadedState: IAppState) => {
     return store;
 }
 
-generateActionCreators();
+StoreApi.generateActionCreators();
 
 export const store = configureStore(defaultState);
