@@ -41,7 +41,7 @@ export interface IExperience {
     description: string;
 }
 
-export interface IResumeData {
+export interface IResume {
     basics: IBasics;
     education: IEducation[];
     skills: ISkill[];

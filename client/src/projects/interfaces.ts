@@ -3,7 +3,7 @@ export interface IProject {
     url: string;
 }
 
-export interface ICategory {
+export interface IProjectsWithCategory {
     category: string;
     projects: IProject[];
 }

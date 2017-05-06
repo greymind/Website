@@ -1,16 +1,16 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { IAppState } from "../store";
+import { IAppState } from "../store/store-interfaces";
 
-import { IResumeData } from "./interfaces";
+import { IResume } from "./interfaces";
 import { Basics } from "./Basics";
 import { Skills } from "./Skills";
 import { Experience } from "./Experience";
 import { Education } from "./Education";
 
 interface IResumeProps {
-    data: IResumeData;
+    data: IResume;
 }
 
 const ResumeView = ({ data }: IResumeProps) => {

@@ -6,12 +6,15 @@ import * as $ from "jquery";
 import { IArticle } from "./interfaces";
 import "./article.less";
 
-interface IArticleProp extends IArticle { }
+interface IArticleProp {
+    article: IArticle;
+    onEdit: (id: number, content: string) => void;
+}
 
 interface IActionButtonProps {
     icon: string;
     title: string;
-    onClick: React.MouseEventHandler<any>;
+    onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export const ActionButton = ({ icon, title, onClick }: IActionButtonProps) =>
@@ -22,7 +25,7 @@ export const ActionButton = ({ icon, title, onClick }: IActionButtonProps) =>
         <span className={`glyphicon ${icon}`} aria-hidden="true"></span>
     </button>
 
-export const Article = (article: IArticleProp) =>
+export const Article = ({ article, onEdit }: IArticleProp) =>
     <div className="article col-xs-offset-1 col-xs-10">
         <div className="row">
             <h3 className="title col-xs-12 text-left">
@@ -37,16 +40,16 @@ export const Article = (article: IArticleProp) =>
         <div className="row footer">
             <div className="col-xs-6 actions">
                 <ActionButton icon="glyphicon-pencil" title="Edit"
-                    onClick={e => null} />
+                    onClick={() => onEdit(article.id, article.content)} />
                 {" "}
                 <ActionButton icon="glyphicon-trash" title="Delete"
-                    onClick={e => null} />
+                    onClick={() => onEdit(article.id, article.content)} />
                 {" "}
                 <ActionButton icon="glyphicon-ok" title="Save"
-                    onClick={e => null} />
+                    onClick={() => onEdit(article.id, article.content)} />
                 {" "}
                 <ActionButton icon="glyphicon-remove" title="Cancel"
-                    onClick={e => null} />
+                    onClick={() => onEdit(article.id, article.content)} />
             </div>
             <div className="author col-xs-6 text-right">
                 <span>

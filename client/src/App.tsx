@@ -1,3 +1,5 @@
+import "babel-polyfill";
+
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
@@ -5,7 +7,7 @@ import { Provider } from "react-redux";
 
 import "../styles/main.less";
 
-import { store } from "./store";
+import { store } from "./store/store";
 import { Header } from "./Header";
 import { Routes } from "./Routes";
 import { RouteWithSubRoutes } from "./framework/RouteWithSubRoutes";

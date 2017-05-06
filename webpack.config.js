@@ -35,7 +35,10 @@ const devEntries = (env == Environment.dev)
     : [];
 
 module.exports = {
-    entry: devEntries.concat(path.join(__dirname, srcPath, "App.tsx")),
+    entry: devEntries.concat([
+        "babel-polyfill",
+        path.join(__dirname, srcPath, "App.tsx")
+    ]),
     output: {
         filename: "bundle.[hash].js",
         path: path.join(__dirname, distPath),
@@ -53,11 +56,12 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 include: path.join(__dirname, srcPath),
-                loader: "awesome-typescript-loader"
+                loader: ["babel-loader", "awesome-typescript-loader"]
             },
             {
                 enforce: "pre",
                 test: /\.js$/,
+                include: path.join(__dirname, srcPath),
                 loader: "source-map-loader"
             },
             {

@@ -2,9 +2,9 @@ import * as React from "react";
 import { connect } from "react-redux";
 import * as _ from "lodash";
 
-import { IAppState } from "../store";
+import { IAppState } from "../store/store-interfaces";
 
-import { ICategory, IProject, IProjectMenuItem } from "./interfaces";
+import { IProjectsWithCategory, IProject, IProjectMenuItem } from "./interfaces";
 
 interface IProjectProps {
     menuItem: IProjectMenuItem;
@@ -32,7 +32,7 @@ const ProjectsList = ({ menuItems }: IProjectsListProps) =>
     </li>
 
 const mapStateToProps = (state: IAppState) => {
-    var menuItems = _.flatMap(state.projects, (category: ICategory) => {
+    var menuItems = _.flatMap(state.projects, (category: IProjectsWithCategory) => {
         var categoryItem: IProjectMenuItem = {
             isCategory: true,
             name: category.category
