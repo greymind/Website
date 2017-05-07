@@ -1,32 +1,17 @@
 import * as React from "react";
 import * as Moment from "moment";
 import * as  ReactMarkdown from 'react-markdown';
-import * as $ from "jquery";
+
+import "./article.less";
 
 import { IArticle } from "./interfaces";
-import "./article.less";
+import { ArticleActionButtons } from "./ArticleActionButtons";
 
 interface IArticleProp {
     article: IArticle;
-    onEdit: (id: number, content: string) => void;
-    onDelete: (id: number) => void;
 }
 
-interface IActionButtonProps {
-    icon: string;
-    title: string;
-    onClick: React.MouseEventHandler<HTMLButtonElement>
-}
-
-export const ActionButton = ({ icon, title, onClick }: IActionButtonProps) =>
-    <button className="btn btn-default btn-sm"
-        ref={button => { $(button).tooltip() }}
-        onClick={onClick}
-        data-toggle="tooltip" data-placement="bottom" title={title}>
-        <span className={`glyphicon ${icon}`} aria-hidden="true"></span>
-    </button>
-
-export const Article = ({ article, onEdit, onDelete }: IArticleProp) =>
+export const Article = ({ article }: IArticleProp) =>
     <div className="article col-xs-offset-1 col-xs-10">
         <div className="row">
             <h3 className="title col-xs-12 text-left">
@@ -40,17 +25,7 @@ export const Article = ({ article, onEdit, onDelete }: IArticleProp) =>
         </div>
         <div className="row footer">
             <div className="col-xs-6 actions">
-                <ActionButton icon="glyphicon-pencil" title="Edit"
-                    onClick={() => onEdit(article.id, article.content)} />
-                {" "}
-                <ActionButton icon="glyphicon-trash" title="Delete"
-                    onClick={() => onDelete(article.id)} />
-                {" "}
-                <ActionButton icon="glyphicon-ok" title="Save"
-                    onClick={() => onEdit(article.id, article.content)} />
-                {" "}
-                <ActionButton icon="glyphicon-remove" title="Cancel"
-                    onClick={() => onEdit(article.id, article.content)} />
+                <ArticleActionButtons article={article} />
             </div>
             <div className="author col-xs-6 text-right">
                 <span>

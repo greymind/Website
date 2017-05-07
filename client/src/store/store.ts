@@ -44,6 +44,7 @@ const configureStore = (preloadedState: IAppState) => {
     return store;
 }
 
+StoreApi.validateActionTypesAreUnique();
 StoreApi.generateActionCreators();
 
 export const store = configureStore(defaultState);

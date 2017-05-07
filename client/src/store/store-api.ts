@@ -54,6 +54,54 @@ class StoreApiInternal {
 
     getReducers = () => this.actionReducers;
 
+    validateActionTypesAreUnique = () => {
+        interface KeyValues {
+            key: string;
+            values: string[];
+        }
+
+        interface StringKeyValuesMap {
+            [key: string]: KeyValues;
+        }
+
+        const actionTypesCount = Object.keys(this.actionTypes)
+            .map(actionType => {
+                return {
+                    key: this.actionTypes[actionType],
+                    values: [actionType]
+                } as KeyValues;
+            })
+            .reduce((prev, current) => {
+                var values = prev[current.key]
+                    ? prev[current.key].values.concat(current.values)
+                    : current.values;
+
+                return {
+                    ...prev,
+                    [current.key]: {
+                        ...current,
+                        values: values
+                    } as KeyValues
+                };
+            }, {} as StringKeyValuesMap);
+
+        const getDuplicates = (map: StringKeyValuesMap) => {
+            return Object.keys(map)
+                .filter((key) => map[key].values.length > 1)
+                .map(key => {
+                    var item = map[key];
+                    return `String [${item.key}] is duplicated by actions [${item.values.join(", ")}]`;
+                });
+        }
+
+        const duplicates = getDuplicates(actionTypesCount)
+
+        if (duplicates.length > 0) {
+            var errorMessage = duplicates.join("\n");
+            throw Error(`The following action type values are not unique: \n${errorMessage}`);
+        }
+    }
+
     generateActionCreators = () => {
         var actionTypes = Object.keys(this.actionTypes);
         actionTypes.forEach(actionType => {
