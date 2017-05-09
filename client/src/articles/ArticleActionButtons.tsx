@@ -44,13 +44,13 @@ const mapDispatchToProps = (dispatch: Dispatch<IAppState>, { article }: IArticle
         onSave: () => {
             dispatch(StoreApi.actionCreators.articlesSave({
                 id: article.id,
-                content: article.content + "blah"
+                content: article.content
             }));
         },
         onCancel: () => {
             dispatch(StoreApi.actionCreators.articlesSave({
                 id: article.id,
-                content: article.content + "blah"
+                content: article.content
             }));
         },
     } as IArticleActionButtonsListProps
