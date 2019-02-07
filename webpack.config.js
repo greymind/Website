@@ -13,6 +13,8 @@ const Environment = {
 const env = process.env.NODE_ENV || Environment.dev;
 const devServerPort = 8081;
 
+console.log('node env', process.env.NODE_ENV);
+
 const distPath = "client/dist";
 const srcPath = "client/src";
 
